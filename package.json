@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bpmn-io/form-js": "^1.6.1",
+    "@bpmn-io/form-js-editor": "^1.6.1",
+    "diagram-js": "^13.4.0",
+    "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.4"
+    "react-dom": "^18"
   }
 }

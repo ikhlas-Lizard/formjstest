@@ -1,0 +1,13 @@
+.file-upload{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  
+}
+
+.file-upload label{
+  width: 100%;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
