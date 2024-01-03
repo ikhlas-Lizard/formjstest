@@ -11,6 +11,7 @@
   "dependencies": {
     "@bpmn-io/form-js": "^1.6.1",
     "@bpmn-io/form-js-editor": "^1.6.1",
+    "antd": "^5.12.7",
     "diagram-js": "^13.4.0",
     "next": "14.0.4",
     "react": "^18",

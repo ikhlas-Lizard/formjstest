@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { FormEditor } from "@bpmn-io/form-js-editor";
 import { Form } from "@bpmn-io/form-js-viewer";
+import { FormField } from "@bpmn-io/form-js";
 
 import RenderExtension from "./extension/render";
 import { FormPlayground } from "@bpmn-io/form-js";
@@ -19,6 +20,21 @@ const schema = {
     },
   ],
   type: "default",
+  components: [
+    {
+      key: "creditor",
+      label: "Creditor",
+      type: "textfield",
+      validate: {
+        // set to always error
+        required: true,
+      },
+    },
+  ],
+};
+
+const data = {
+  creditor: "John Doe",
 };
 
 const FormEditorPage = ({ container }) => {
@@ -55,12 +71,19 @@ const FormEditorPage = ({ container }) => {
       additionalModules: [RenderExtension],
     });
 
-    formViewer.importSchema(schemaData);
+    formViewer.importSchema(schemaData, data);
 
     formViewer.on("submit", (event) => {
       const { data } = event;
       console.log(data, "data");
     });
+
+    formViewer.on("changed", (event) => {
+      const { data } = event;
+      console.log(data, "data");
+    });
+
+    // set creditor field to error
 
     setformViewer(formViewer);
   };
@@ -130,7 +153,7 @@ const FormEditorPage = ({ container }) => {
           destroyEditor();
 
           const schema = formEditor.saveSchema();
-          loadFormViewer(schema);
+          loadFormViewer(schema, data);
         }}
       >
         viewer

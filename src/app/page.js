@@ -23,7 +23,7 @@ export default function Home() {
         container: document.querySelector("#form-editor"),
       });
 
-      await formEditor.createFormEditor();
+      // await formEditor.createFormEditor();
     };
 
     loadForm();
