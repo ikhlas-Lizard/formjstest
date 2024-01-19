@@ -5,6 +5,7 @@ import { Form } from "@bpmn-io/form-js-viewer";
 import { FormField } from "@bpmn-io/form-js";
 
 import RenderExtension from "./extension/render";
+import SignatureExtension from "./extension/signature";
 import { FormPlayground } from "@bpmn-io/form-js";
 
 const schema = {
@@ -46,7 +47,7 @@ const FormEditorPage = ({ container }) => {
   useEffect(() => {
     const formEditor = new FormEditor({
       container: document.querySelector("#form-editor"),
-      additionalModules: [RenderExtension],
+      additionalModules:  [SignatureExtension],
     });
 
     formEditor.importSchema(schema);
@@ -68,7 +69,7 @@ const FormEditorPage = ({ container }) => {
     // formViewer?.destroy(); // destroy old viewer
     const formViewer = new Form({
       container: document.querySelector("#form-viewer"),
-      additionalModules: [RenderExtension],
+      additionalModules: [SignatureExtension],
     });
 
     formViewer.importSchema(schemaData, data);
@@ -92,7 +93,7 @@ const FormEditorPage = ({ container }) => {
     // formEditor?.destroy(); // destroy old editor
     const formEditor = new FormEditor({
       container: document.querySelector("#form-editor"),
-      additionalModules: [RenderExtension],
+      additionalModules: [SignatureExtension],
     });
     formEditor.importSchema(schema);
     setFormEditor(formEditor);

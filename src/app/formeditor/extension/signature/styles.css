@@ -1,0 +1,48 @@
+.fjs-form-field-signature-img {
+  width: 250px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: #fff;
+}
+
+.fjs-form-field-label-signature{
+  font-size: 16px !important;
+}
+
+.signature-button{
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signature-button-disabled{
+  background-color: #CBCBCB;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.plus-icon{
+  font-size: 20px;
+  color: #000;
+  margin-right: 10px;
+}
