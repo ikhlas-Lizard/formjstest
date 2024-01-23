@@ -13,14 +13,16 @@ export const signatureType = 'signature';
  */
 export function SignatureRenderer(props) {
   const { errors = [], field } = props;
-  const { description, id, label } = field;
-  const { formId } = useContext(FormContext);
+  console.log('SignatureRenderer field', field);
+  const { description, id, label, properties } = field;
+  const allowedRoles = properties?.accessibleBy?.split(',') ?? [];
+  console.log('SignatureRenderer allowedRoles', allowedRoles);
   const [showSignature, setShowSignature] = useState(false);
   const signatureImage =
     'https://upload.wikimedia.org/wikipedia/commons/5/5d/Sign_Joko_Widodo.png'; //TODO: get signature image from user profile
   const signatureDescription = 'Nabil Alkahar, SEA Manager'; //TODO: get signature description from user profile
-  // check if user has correct role to add signature
-  const correctRoleForSignature = true; // TODO: check if user has correct role to add signature
+  const userRole = 'MA'; // TODO: get user role from user profile
+  const correctRoleForSignature = allowedRoles.includes(userRole);
 
   const handleAddSignature = () => {
     setShowSignature(true);
@@ -69,6 +71,7 @@ SignatureRenderer.config = {
     'key',
     'label',
     'description',
+    'accessibleBy',
     'disabled',
     'readonly',
   ],
