@@ -58,7 +58,6 @@ const FormEditorPage = ({ container }) => {
 
     formEditor.importSchema(schema);
     setFormEditor(formEditor);
-
     // Cleanup function to dispose the editor when component unmounts
     return () => {
       formEditor.destroy();
@@ -84,6 +83,7 @@ const FormEditorPage = ({ container }) => {
 
     formViewer.importSchema(schemaData, data);
 
+
     formViewer.on('submit', (event) => {
       const { data } = event;
       console.log(data, 'data');
@@ -92,6 +92,19 @@ const FormEditorPage = ({ container }) => {
     formViewer.on('changed', (event) => {
       const { data } = event;
       console.log(data, 'data');
+
+      let tempData = { ...data };
+
+      // modify the data if the value matched the fixed value
+      Object.keys(tempData).forEach(val => {
+        if (data[val] === 'new_signature') {
+          tempData = {
+            ...tempData,
+            [val]: "signatureUrlhere"
+          }
+        }
+      })
+      // call another function to save the data on a state
     });
 
     // set creditor field to error

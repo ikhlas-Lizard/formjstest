@@ -24,8 +24,12 @@ export function SignatureRenderer(props) {
   const userRole = 'MA'; // TODO: get user role from user profile
   const correctRoleForSignature = allowedRoles.includes(userRole);
 
-  const handleAddSignature = () => {
+  const handleAddSignature = (e) => {
     setShowSignature(true);
+    props?.onChange({
+      field,
+      value: 'new_signature'
+    })
   };
 
   return html`
@@ -39,8 +43,8 @@ export function SignatureRenderer(props) {
           `
         : html`
             <button
-              disabled=${!correctRoleForSignature}
-              class=${correctRoleForSignature
+            disabled=${!correctRoleForSignature}
+            class=${correctRoleForSignature
                 ? 'signature-button'
                 : 'signature-button-disabled'}
               onClick=${handleAddSignature}
